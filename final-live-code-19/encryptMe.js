@@ -26,7 +26,43 @@
 
 */
 function encrypt(input) {
-  // your code here
+  var kamus = {
+    a: '!',
+    b: '@',
+    c: '#',
+    d: '$',
+    e: '%',
+    f: '^',
+    g: '&',
+    h: '*',
+    i: '(',
+    j: ')',
+    k: '-',
+    l: '+',
+    m: '1',
+    n: '2',
+    o: '3',
+    p: '4',
+    q: '5',
+    r: '6',
+    s: '7',
+    t: '8',
+    u: '9',
+    v: '0',
+    w: '[',
+    x: ']',
+    y: '{',
+    z: '}'
+  }
+  var kataBaru = ''
+  for (var i in input){
+    if (input[i].match(/[a-z]/)){
+    kataBaru += kamus[input[i]]
+  } else {
+    kataBaru += input[i]
+  }
+  }
+  return kataBaru
 }
 
 console.log(encrypt('dimitri')) // $(1(86(

@@ -30,7 +30,25 @@ RULES:
 */
 
 function virusCheckRecursive (str, viruses) {
-  // your code here
+  if (viruses === undefined){
+    return 'There is no virus'
+  }
+  var count = 0;
+
+  if (str.length === 0){
+    return count
+  }
+  var scan = viruses.split('|')
+  for (i in scan){
+    if (scan[i] == str[0] || scan[i] === str[0].toLowerCase() || scan[i] === str[0].toUpperCase()){
+      count ++
+    }
+  }
+  var arr = str.split('')
+  arr.splice(0,1)
+  var strBaru = arr.join('')
+
+  return count + virusCheckRecursive(strBaru, viruses)
 }
 
 console.log(virusCheckRecursive('qlD4MZax0raQqew', 'x|0|q')); // 5

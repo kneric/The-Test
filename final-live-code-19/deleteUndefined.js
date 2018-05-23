@@ -23,7 +23,17 @@ CONSTRAINTS
 */
 
 function deleteUndefinedKeys (data) {
-  // Code here
+  if (data.length === 0){
+    return 'No data'
+  }
+  for (var i in data){
+    for (var j in data[i]){
+      if (data[i][j] === undefined){
+        delete data[i][j]
+      }
+    }
+  }
+  return data
 }
 
 console.log(deleteUndefinedKeys([

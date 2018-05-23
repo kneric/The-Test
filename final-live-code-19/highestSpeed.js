@@ -26,7 +26,18 @@ Contoh input dan output bisa kamu lihat di test case
 */
 
 function highestTopSpeed (data) {
-  // your code here
+  if (data === ''){
+    return 'No data'
+  }
+  var arr = data.match(/[0-9]+/g)
+  var speed = {}
+  for (var i in arr){
+    if (speed.highest === undefined || Number(arr[i] > speed.highest)){
+      speed.highest = Number(arr[i])
+    }
+  }
+  
+  return speed.highest
 }
 
 console.log(highestTopSpeed('Nakazato:140 km/h,Ryosuke:180 km/h,Iketani:110 km/h'));

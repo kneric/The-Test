@@ -21,7 +21,25 @@ yang tipe data-nya berupa String.
 */
 
 function miniSudokuBoard (text) {
-  // Code here
+  if (text === ''){
+    return 'Empty board'
+  }
+  if (text.length !== 9){
+    return 'Invalid input'
+  }
+  var result = []
+  var kotak3 = [] 
+  for (var i in text){
+    if (kotak3.length < 3){
+      kotak3.push(text[i])
+    } else {
+      result.push(kotak3)
+      kotak3 = [text[i]]
+    }
+  }
+  result.push(kotak3)
+  
+  return result
 }
 
 console.log(miniSudokuBoard('005030081'));

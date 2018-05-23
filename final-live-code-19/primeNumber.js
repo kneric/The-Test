@@ -52,12 +52,45 @@ RULES
 
 */
 
+function angkaPrima(angka) {
+  if (angka < 2) return false;
+  for (var i = 2; i < angka; i++){
+    if(angka % i === 0){
+      return false;
+    }
+  }
+  return true
+}
+
 function numberPrimeCruncher(input) {
-  // only code here..
+  var prima = []
+  for (var i = 0; i <= input; i++){
+    if (angkaPrima(i)){
+      prima.push(i)
+    }
+  }  
+
+  if (prima.length !== 0){
+    var jumlah = 0
+    for (var k in prima){
+      jumlah += prima[k]
+    }
+    var rata2 = jumlah / prima.length
+    
+    var result = []
+    for (var l in prima){
+      if (prima[l] > rata2){
+        result.push(prima[l])
+      }
+    }
+    return result
+  } else {
+    return prima
+  }
 }
 
 console.log(numberPrimeCruncher(10)); // [ 5, 7 ]
 console.log(numberPrimeCruncher(44)); // [ 23, 29, 31, 37, 41, 43 ]
 console.log(numberPrimeCruncher(23)); // [ 13, 17, 19, 23 ]
-console.log(numberPrimeCruncher(1); // []
+console.log(numberPrimeCruncher(1)); // []
 console.log(numberPrimeCruncher(0)); // []
