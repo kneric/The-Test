@@ -51,17 +51,26 @@ function squareNumber(num) {
   var result = []
   var baris = []
   
-    for (var j = num*num; j >= 1; j--){
-      baris.push(j)
+  for (var j = 1; j <= num*num; j++){
+    if (result.length % 2 !== 0){
+      baris.unshift(j)
       if (baris.length === num){
-        result.push(baris)  
-        baris =[]  
+        result.unshift(baris)
+        baris = []
       }
     }
-    if (baris.length === 0){
+    else if (result.length % 2 === 0){
+      baris.push(j)
+      if (baris.length === num){
+        result.unshift(baris)
+        baris = []
+      }
+    } 
+  }
+  if (baris.length === 0){
       return result
     }
-    result.push(baris)
+  result.unshift(baris)
 
   return result
 }
